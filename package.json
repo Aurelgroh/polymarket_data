@@ -1,0 +1,13 @@
+{
+  "name": "polymarket-trade-puller",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pull public trade history from Polymarket's Data API",
+  "scripts": {
+    "pull": "tsx src/index.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
