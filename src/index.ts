@@ -99,7 +99,7 @@ async function fetchPage(
   opts: CLIOptions
 ): Promise<Trade[]> {
   const params = new URLSearchParams({
-    maker: wallet,
+    user: wallet,
     limit: String(PAGE_SIZE),
     offset: String(offset),
   });
@@ -140,7 +140,7 @@ function printSummary(trades: Trade[]): void {
 
   const buys = trades.filter((t) => t.side === "BUY").length;
   const sells = trades.length - buys;
-  const markets = new Set(trades.map((t) => t.market)).size;
+  const markets = new Set(trades.map((t) => t.conditionId || t.market)).size;
   const volume = trades.reduce((sum, t) => {
     const size = parseFloat(t.size) || 0;
     const price = parseFloat(t.price) || 0;
